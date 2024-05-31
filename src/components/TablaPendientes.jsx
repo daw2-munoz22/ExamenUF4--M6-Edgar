@@ -12,6 +12,7 @@ function TablaPendientes() {
           const response = await fetch('https://server-examen-edgar.vercel.app/ticketsPendientes');
           if (response.ok) {
             const data = await response.json();
+            data.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
             setTicketsPendientes(data);
           } else {
             console.error('Error al obtener los datos de tickets pendientes:', response.status);
@@ -59,9 +60,9 @@ function TablaPendientes() {
               {/* Botones para resolver, añadir comentario, ver comentarios y eliminar */}
               <td>
               <button className="btn btn-danger" title="Eliminar ticket">
-                <i class="bi bi-bucket"></i>
-              </button>
-            </td>
+                    <i class="bi bi-bucket"></i>
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

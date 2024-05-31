@@ -10,6 +10,7 @@ function TablaResueltos() {
         const response = await fetch('https://server-examen-edgar.vercel.app/ticketsResueltos');
         if (response.ok) {
           const data = await response.json();
+          data.sort((a, b) => new Date(a.fecha) - new Date(b.fecha));
           setTicketsResueltos(data);
         } else {
           console.error('Error al obtener los datos de tickets resueltos:', response.status);
