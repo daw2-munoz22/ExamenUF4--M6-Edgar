@@ -1,7 +1,32 @@
-import  { useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function TablaResueltos() {
-  const { datos } = useContext(GlobalContext);
+  const [ticketsResueltos, setTicketsResueltos] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchTicketsResueltos = async () => {
+      try {
+        const response = await fetch('https://server-examen-edgar.vercel.app/ticketsResueltos');
+        if (response.ok) {
+          const data = await response.json();
+          setTicketsResueltos(data);
+        } else {
+          console.error('Error al obtener los datos de tickets resueltos:', response.status);
+        }
+      } catch (error) {
+        console.error('Error al obtener los datos de tickets resueltos:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTicketsResueltos();
+  }, []);
+
+  if (loading) {
+    return <div>Cargando...</div>;
+  }
 
   return (
     <table className="table mt-4">
@@ -19,7 +44,7 @@ function TablaResueltos() {
       </thead>
       <tbody>
         {/* Genera el contenido de la tabla de tickets resueltos */}
-        {datos.resueltos.map(ticket => (
+        {ticketsResueltos.map(ticket => (
           <tr key={ticket.codigo}>
             <td>{ticket.codigo}</td>
             <td>{ticket.fecha}</td>
