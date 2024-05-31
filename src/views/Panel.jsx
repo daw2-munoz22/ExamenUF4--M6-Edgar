@@ -5,8 +5,10 @@ import TablaResueltos from "../components/TablaResueltos";
 export default function Panel() {
     return (
         <>
-          <TablaPendientes />
-          <TablaResueltos />
+            <h1>Tickets Pendientes</h1>
+                <TablaPendientes />
+            <h1>Tickets Resueltos</h1>
+                <TablaResueltos />
         </>
       );
   }

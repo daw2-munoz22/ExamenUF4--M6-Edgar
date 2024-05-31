@@ -29,6 +29,7 @@ function TablaResueltos() {
   }
 
   return (
+    
     <table className="table mt-4">
       <thead>
         <tr>
