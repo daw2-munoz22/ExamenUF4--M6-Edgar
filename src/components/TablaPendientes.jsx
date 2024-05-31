@@ -59,15 +59,22 @@ function TablaPendientes() {
               <td>{ticket.alumno}</td>
               {/* Botones para resolver, añadir comentario, ver comentarios y eliminar */}
               <td>
+                <button className="btn btn-warning" title="Añadir ticket">
+                <i class="bi bi-plus-circle-fill"></i>
+                  </button>
+                </td>
+              <td>
+                
               <button className="btn btn-danger" title="Eliminar ticket">
                     <i class="bi bi-bucket"></i>
                 </button>
               </td>
+              
             </tr>
           ))}
         </tbody>
       </table>
     );
   }
-  
+  <i class="bi bi-plus-circle-fill"></i>
   export default TablaPendientes;

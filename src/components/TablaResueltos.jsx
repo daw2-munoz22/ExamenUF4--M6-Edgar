@@ -74,4 +74,5 @@ function TablaResueltos() {
   );
 }
 
+
 export default TablaResueltos;
