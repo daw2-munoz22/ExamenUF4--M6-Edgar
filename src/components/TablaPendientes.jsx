@@ -57,6 +57,11 @@ function TablaPendientes() {
               <td>{ticket.descripcion}</td>
               <td>{ticket.alumno}</td>
               {/* Botones para resolver, añadir comentario, ver comentarios y eliminar */}
+              <td>
+              <button className="btn btn-danger" title="Eliminar ticket">
+                <i class="bi bi-bucket"></i>
+              </button>
+            </td>
             </tr>
           ))}
         </tbody>

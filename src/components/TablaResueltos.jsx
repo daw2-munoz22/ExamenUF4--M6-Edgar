@@ -56,6 +56,16 @@ function TablaResueltos() {
             <td>{ticket.descripcion}</td>
             <td>{ticket.alumno}</td>
             {/* Botones para ver comentarios y eliminar */}
+            <td>
+              <button className="btn btn-info" title="Ver comentarios">
+                <i class="bi bi-chat-left-dots"></i>
+              </button>
+            </td>
+            <td>
+              <button className="btn btn-danger" title="Eliminar ticket">
+                <i class="bi bi-bucket"></i>
+              </button>
+            </td>
           </tr>
         ))}
       </tbody>
